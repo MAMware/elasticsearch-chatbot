@@ -87,7 +87,7 @@ ibmcloud login --sso
 * Set the Kubernetes environment to work with your cluster:
 
 ```bash
-ibmcloud cs cluster-config $CLUSTER_NAME
+ibmcloud ks cluster config --cluster $CLUSTER_NAME
 ```
 
 The output of this command will contain a KUBECONFIG environment variable that must be exported in order to set the context. Copy and paste the output in the terminal window. An example is:
@@ -146,7 +146,7 @@ export KUBECONFIG=/home/rak/.bluemix/plugins/container-service/clusters/Kate/kub
 7. Get the workers for your Kubernetes cluster:
 
 ```bash
-ibmcloud cs workers <mycluster>
+ibmcloud ks workers --cluster <mycluster>
 ```
 and locate the `Public IP`. This IP is used to access the App and UI on the Cloud. Update the `env` value for `REACT_APP_API_BASE_URL` in [deploy-web.yml](deploy-web.yml) to `http://<Public IP>:32001`.
 
